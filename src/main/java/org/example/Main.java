@@ -13,11 +13,16 @@ public class Main {
 
     }
     public static void printOrders(ArrayList<String> pizzas, ArrayList<Integer> quantities){
-
+        System.out.println("--- Current Orders ---");
+        for (int i = 0; i < pizzas.size(); i++){
+            System.out.printf("%d. " + pizzas.get(i) + " x " + quantities.get(i), i+1);
+            System.out.println();
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
-        ArrayList<String> pizza = new ArrayList<String>(); // ArrayList<String> pizzas
+        ArrayList<String> pizzas = new ArrayList<String>(); // ArrayList<String> pizzas
         ArrayList<Integer> quantities = new ArrayList<Integer>(); // ArrayList<Integer> quantities
         Scanner myObj = new Scanner (System.in);
 
@@ -54,13 +59,17 @@ public class Main {
                             System.out.println();
                         }
                     }
-                    addOrder(pizza, quantities, typeOfPizza, quantityToAdd);
+                    addOrder(pizzas, quantities, typeOfPizza, quantityToAdd);
                     break;
+
                 case 2:
+
                     break;
                 case 3:
                     break;
                 case 4:
+                    System.out.println();
+                    printOrders(pizzas, quantities);
                     break;
                 case 5:
                     break;
