@@ -7,6 +7,7 @@ public class Main {
         quantities.add(quantity);
     }
     public static void updateOrder(ArrayList<Integer> quantities, int index, int newQuantity){
+        quantities.set(index, newQuantity);
 
     }
     public static void removeOrder(ArrayList<String> pizzas, ArrayList<Integer> quantities, int index){
@@ -28,6 +29,7 @@ public class Main {
 
         // String typeOfPizza; // String pizzaType
         int quantityToAdd; // int quantity
+        int indexToUpdate; // int index
 
         int userChoice = 0;
         // User menu
@@ -63,7 +65,21 @@ public class Main {
                     break;
 
                 case 2:
+                    System.out.print("Order number to update: ");
+                    indexToUpdate = userOption.nextInt();
+                    System.out.print("New quantity: ");
+                    quantityToAdd = userOption.nextInt();
 
+                    if (quantityToAdd <= 0){
+                        while(quantityToAdd <= 0){
+                            System.out.println("Quantity must be positive");
+                            System.out.print("Quantity: ");
+                            quantityToAdd = userOption.nextInt();
+                            System.out.println();
+                        }
+                    }
+                    updateOrder(quantities,indexToUpdate-1, quantityToAdd);
+                    System.out.println();
                     break;
                 case 3:
                     break;
