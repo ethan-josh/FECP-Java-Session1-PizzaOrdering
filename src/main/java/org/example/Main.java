@@ -3,15 +3,18 @@ import java.util.*;
 
 public class Main {
     public static void addOrder(ArrayList<String> pizzas, ArrayList<Integer> quantities, String pizzaType, int quantity){
-        pizzas.add(pizzaType);
-        quantities.add(quantity);
+        if (quantity > 0){
+            pizzas.add(pizzaType);
+            quantities.add(quantity);
+        }
     }
     public static void updateOrder(ArrayList<Integer> quantities, int index, int newQuantity){
         quantities.set(index, newQuantity);
 
     }
     public static void removeOrder(ArrayList<String> pizzas, ArrayList<Integer> quantities, int index){
-
+        pizzas.remove(index);
+        quantities.remove(index);
     }
     public static void printOrders(ArrayList<String> pizzas, ArrayList<Integer> quantities){
         System.out.println("--- Current Orders ---");
@@ -82,6 +85,9 @@ public class Main {
                     System.out.println();
                     break;
                 case 3:
+                    System.out.print("Order number to remove: ");
+                    indexToUpdate = userOption.nextInt();
+                    removeOrder(pizzas, quantities, indexToUpdate-1);
                     break;
                 case 4:
                     System.out.println();
